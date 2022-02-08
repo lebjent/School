@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+      
+   	<th:block layout:fragment="css">
+   	<link rel="stylesheet" th:href="@{/css/manage/studentRegView.css}" />  
+   	</th:block>
+    
+    <th:block layout:fragment="script">
+    	<script type="text/javascript">
+			$(document).ready(function(){
+				$("#reg_btn").on("click",function(){
+				 
+					let studentForm = $("#studentForm");
+				 	
+					let tel1 = $("#tel1").val();
+					let tel2 = $("#tel2").val();
+					let tel3 = $("#tel3").val();
+					
+					//유효성검사 간단히 null값만 실행
+				 	
+					if($("#studentName").val() == ""){
+						alert('학생이름을 입력해주세요.');
+						return false;
+					}
+				 	if($("#studentClass").val()=="NO"){
+				 		alert("반 배정을 선택해주세요.");
+				 		return false;
+				 	}
+				 		
+				 	if(tel1 == "" || tel2 == "" || tel3 == "" ){
+				 		alert('전화번호를 입력해주세요.');
+				 		return false;
+				 	}
+				 	
+				 	$("#studentPhone").val(tel1+"-"+tel2+"-"+tel3);
+				 	
+				 	studentForm.submit();
+					
+				});
+			});
+		</script>
+    </th:block>
+      	
+    <div layout:fragment="content">
+        <div class="student">
+        	<h3>MiNi Student 등록</h3>
+        	<form id="studentForm" method="post" action="/manage/studentReg">
+        	<table>
+        		<tr>
+        			<td>
+        				<label>학번</label>
+        				<br>
+        				<input type="text"  th:value="${studentIdx}" disabled>
+        				<p id="auto">※학번은 자동으로 기입이 됩니다.</p>
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				<label>학생이름</label>
+        				<br>
+        				<input type="text" name="studentName" id="studentName">
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				<label>반배정</label>
+        				<br>
+						<select name="studentClass" id="studentClass">
+							<option value="NO">==========선택==========</option>
+							<option value="A">===========A===========</option>
+							<option value="B">===========B===========</option>
+							<option value="C">===========C===========</option>
+						</select>
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				<label>전화번호</label>
+        				<br>
+        				<input type="text" class="tel"  id="tel1">-
+        				<input type="text" class="tel"  id="tel2">-
+        				<input type="text" class="tel"  id="tel3">
+        				<input type="hidden" name="studentPhone" id="studentPhone">
+        			</td>
+        		</tr>
+        		<tr>
+        			<td id="regBtn">
+        				<button type="button" id="reg_btn">등록하기</button>
+        			</td>
+        		</tr>
+        	</table>
+        	</form>
+        </div>
+    </div>
+
+</html>

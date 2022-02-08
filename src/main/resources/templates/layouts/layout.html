@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>MiNI School System</title>
+	<link rel="stylesheet" th:href="@{/css/layout/layout.css}">
+	<script type="text/javascript" th:src="@{/vendor/jquery-3.2.1.min.js}"></script>
+    <th:block layout:fragment="script"></th:block>
+    <th:block layout:fragment="css"></th:block>
+</head>
+<body>
+
+<div th:replace="fragments/header::header"></div>
+<div th:replace="fragments/nav::nav"></div>
+
+<div layout:fragment="content" class="content">
+
+</div>
+
+<div th:replace="fragments/footer::footer"></div>
+
+</body>
+</html>

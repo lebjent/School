@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+   <th:block layout:fragment="css">
+    <style>
+    	p#a{
+    	  height:600px; 
+    	}
+    </style>
+    </th:block>  	
+    <div layout:fragment="content">
+        <p id="a">본문영역</p>
+    </div>
+
+</html>

@@ -1,0 +1,20 @@
+div.main{
+	margin: auto;
+	text-align: center;
+}
+
+h3{	
+	margin-top: 400px;
+	text-align: center;
+}
+
+button{
+	margin-top:20px;
+	height:40px;
+	
+}
+
+img#school{
+	width: 90px;
+	height: 90px;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.StudentMapper">
+	
+	<select id="autoStudentIdx" resultType="int">
+		SELECT AUTO_INCREMENT 
+		FROM information_schema.TABLES
+		WHERE TABLE_SCHEMA = 'board' 
+		AND TABLE_NAME = 'student_tbl'
+	</select>
+	
+</mapper>
