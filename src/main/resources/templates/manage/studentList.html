@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+   <th:block layout:fragment="css">
+   		<link rel="stylesheet" type="text/css" th:href="@{/css/manage/studentList.css}">
+    </th:block>
+   <th:block layout:fragment="script">
+ 		<script type="text/javascript" th:src="@{/js/manage/studentList.js}"></script>
+   </th:block>
+    
+      	
+    <div layout:fragment="content">
+    	<div class="studentList">
+    		<h3>MiNi School 컴퓨터공학과 학생명부</h3>
+    		<div class="detailSearch">
+    			<span>학년</span>
+    			<select id="realGrade">
+    				<option value="">전체</option>
+    				<option value="1" th:selected="${#strings.equals(cri.sGrade, '1')}">1학년</option>
+    				<option value="2" th:selected="${#strings.equals(cri.sGrade, '2')}">2학년</option>
+    				<option value="3" th:selected="${#strings.equals(cri.sGrade, '3')}">3학년</option>
+    				<option value="4" th:selected="${#strings.equals(cri.sGrade, '4')}">4학년</option>
+    			</select>
+    			<span>반</span>
+    			<select id="realClass">
+    				<option value="">전체</option>
+    				<option value="A" th:selected="${#strings.equals(cri.sClass, 'A')}">A</option>
+    				<option value="B" th:selected="${#strings.equals(cri.sClass, 'B')}">B</option>
+    				<option value="C" th:selected="${#strings.equals(cri.sClass, 'C')}">C</option>
+    			</select>
+    		</div>
+    		<div class="search">
+    			<select id="realSearchType">
+    				<option value="NIP">전체</option>
+    				<option value="N" th:selected="${#strings.equals(cri.SearchType, 'N')}">이름</option>
+    				<option value="I" th:selected="${#strings.equals(cri.SearchType, 'I')}">학번</option>
+    				<option value="P" th:selected="${#strings.equals(cri.SearchType, 'P')}">전화번호</option>
+    			</select>
+    			<input type="text" id="realKeyword" th:value="${cri.keyword}">
+    			<button type="button" id="search_btn">Search</button>
+    		</div>
+    		<table >
+    			<tr>
+    				<th>학번</th>
+    				<th>학생이름</th>
+    				<th>학년</th>
+    				<th>반</th>
+    				<th>전화번호</th>
+    			</tr>
+    			<tr th:if="${total>0}" th:each="list : ${list}">
+    				<td th:text=${list.studentIdx}></td>
+    				<td th:text=${list.studentName}></td>
+    				<td th:text=${list.studentGrade}></td>
+    				<td th:text=${list.studentClass}></td>
+    				<td th:text=${list.studentPhone}></td>
+    			</tr>
+    			<tr th:unless="${total>0}">
+    				<td id="fail" colspan="5">
+    					<img id="sList" alt="sList" th:src="@{/images/studentlist.png}">
+    					<br>
+    					<span id="fail">조건에 맞는 학생이 없습니다.</span>
+    					<br>
+    					<br>
+    					<a href="/manage/studentList" id="reList">처음으로 돌아가기</a>
+    				</td>
+    			</tr>
+    		</table>
+    		<div class="page" th:if="${total>0}">
+    			<!-- 이전 -->
+    			<th:block th:if=${pageMaker.prev}>
+    				<button th:value=${pageMaker.startPage-1}>이전</button>
+    			</th:block>
+    			<!-- 페이지버튼 -->
+    			<th:block th:each="num : ${#numbers.sequence(pageMaker.startPage,pageMaker.endPage)}"> 
+    				<button type="button" id="page_btn" th:text="${num}" th:value="${num}" th:class="${num == pageMaker.cri.pageNum} ? 'active'"></button>
+    			</th:block>
+
+    			<!-- 다음 -->
+    			<th:block th:if=${pageMaker.next}>
+    				<button  th:value=${pageMaker.endPage+1}>다음</button>
+    			</th:block>
+    		</div>
+    		<div class="btn">
+    			<button type="button" id="studentReg_btn">학생등록</button>
+    		</div>
+    		<form id="moveForm" method="get">
+    			<input type="hidden" id="pageNum" name="pageNum" th:value="1">
+    			<input type="hidden" id="amount" name="amount" th:value="15">
+    			<input type="hidden" id="searchType" name="searchType" th:value="${cri.searchType}">
+    			<input type="hidden" id="keyword" name="keyword" th:value="${cri.keyword}">
+    			<input type="hidden" id="sGrade" name="sGrade" th:value="${cri.sGrade}">
+    			<input type="hidden" id="sClass" name="sClass" th:value="${cri.sClass}">
+    		</form>
+    	</div>
+    </div>
+
+</html>

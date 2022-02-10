@@ -3,7 +3,7 @@
     		margin-top:30px;
     		margin-bottom:30px;
     		width: 900px;
-    		height: 550px;
+    		height: 700px;
     		border: 5px black solid;
     		border-radius: 20px;
     	}
@@ -49,8 +49,35 @@
 		}
 		
 		td#regBtn button{
+			background-color:#96A5FF;
+			color:white;
 			width: 300px;
 			height: 50px;
 			font-size: 12pt;
 			font-weight: bold;
+			border-radius: 12px;
+			border: none;
 		}
+		
+		td#regBtn button:hover{
+			border: 2px solid #96A5FF;
+			background-color: #8E83A9;
+		}
+		
+		
+		td#cancelBtn button{
+			background-color:#FF5675;
+			color:white;
+			width: 300px;
+			height: 50px;
+			font-size: 12pt;
+			font-weight: bold;
+			border-radius: 12px;
+			border: none;
+		}
+		
+		td#cancelBtn button:hover{
+			border: 2px solid #FF5675;
+			background-color: #F4B6D9;
+		}
+		

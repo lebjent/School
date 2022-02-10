@@ -47,7 +47,7 @@ public class DBConfiguration {
 		//Mybatis 연동
 		sqlSessionFactoryBean.setConfiguration(mybatisConfig());
 		//TypeAlias 연동
-		sqlSessionFactoryBean.setTypeAliasesPackage("com.school.dto");
+		sqlSessionFactoryBean.setTypeAliasesPackage("com.school");
 		
 		return sqlSessionFactoryBean.getObject();
 	}

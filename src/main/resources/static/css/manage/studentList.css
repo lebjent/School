@@ -1,0 +1,139 @@
+		div.studentList{
+			margin: auto;
+			margin-top:30px;
+			margin-bottom:30px;
+			border: 3px black solid;
+			width: 1400px;
+			height: 1100px;
+			border-radius: 20px;
+		}
+		
+		h3{	
+			margin-top: 20px;
+			text-align: center;
+		}
+		
+		div.detailSearch{
+			margin: auto;
+			margin-top:50px;
+			width: 1200px;
+			text-align: right;
+		}
+		
+		div.search{
+			margin: auto;
+			margin-top:50px;
+			width: 1200px;
+			text-align: right;
+		}
+		
+		button#search_btn{
+			width: 100px;
+			height: 40px;
+			background-color: #1EAAAA;
+			color: white;
+			font-size:13pt;
+			font-weight: bold;
+		}
+		
+		button#search_btn:hover{
+			background-color: #8c8c8c;
+		}
+		table{
+			margin: auto;
+			margin-top:30px;
+			border: 2px black solid;
+			width: 1200px;
+			border-collapse: collapse;
+		}
+		th{
+			background-color: #1EAAAA;
+			color:white;
+			font-weight: bold;
+		}
+		
+		tr{
+			border-collapse: collapse;
+		}
+		
+		td{
+			text-align: center;
+			border: 1px black solid;
+			border-collapse: collapse;
+			height: 35px;
+		}
+		
+		div.page{
+			margin: auto;
+			margin-top:30px;
+			width: 1200px;
+			text-align: center;
+		}
+		
+		button{
+			border: none;
+			border-radius: 8px;		
+		}
+		
+		button#page_btn{
+			width: 35px;
+			height: 35px;
+		}
+		
+		button#page_btn:hover{
+			background-color: #1EAAAA;
+			color: white;
+		}
+		
+		button.active{
+			background-color: #1EAAAA;
+			color: white;
+		}
+		
+		div.btn{
+			margin: auto;
+			margin-top:20px;
+			width: 1200px;
+			text-align: right;
+		}
+		
+		button#studentReg_btn{
+			width: 100px;
+			height: 50px;
+			font-weight: bold;
+		}
+		
+		button#studentReg_btn:hover{
+			background-color: #1EAAAA;
+			color: white;
+		}
+		
+		select {
+			height: 30px;
+		}
+		
+		input[type='text'] {
+			height: 20px;
+		}
+		
+		td#fail{
+			height: 500px;
+			margin-bottom: 30px;
+		}
+		
+		span#fail{
+			color: red;
+			font-weight: bold;
+		}
+		
+		img#sList{
+			width: 100px;
+			height: 100px;
+			margin-bottom: 20px;
+		}
+		
+		a#reList{
+			font-size: 9pt;
+			font-weight: bold;
+		}
+		

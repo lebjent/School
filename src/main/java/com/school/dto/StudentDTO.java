@@ -10,6 +10,8 @@ public class StudentDTO {
 	private int studentIdx;
 	private String studentName;
 	private String studentPhone;
+	private String studentGrade;
 	private String studentClass;
+	private String scoreYn;
 	
 }

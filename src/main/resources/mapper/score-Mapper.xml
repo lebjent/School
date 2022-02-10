@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.ScoreMapper">
+	
+	<!-- 학생점수 등록 -->
+	<insert id="scoreReg" parameterType="ScoreDTO">
+		INSERT INTO score_tbl
+		(score_idx,m_java,m_sql,m_javascript,m_spring,m_css,student_idx)
+		VALUES(0,#{mJava},#{mSql},#{mJavaScript},#{mSpring},#{mCss},#{studentIdx})
+	</insert>
+	
+	<!-- 학생점수가 등록되면 학생테이블업데이트 -->
+	<update id="scoreCheck" parameterType="int">
+		UPDATE student_tbl
+		SET score_yn = 'Y'
+		WHERE student_idx = #{studentIdx}
+	</update>
+	
+</mapper>

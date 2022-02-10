@@ -1,0 +1,179 @@
+		div.scoreReg{
+			margin: auto;
+			margin-top:30px;
+			margin-bottom:30px;
+			border: 3px black solid;
+			width: 1400px;
+			border-radius: 20px;
+		}
+		
+		h2{	
+			margin-top: 20px;
+			text-align: center;
+		}
+		
+		div.detailSearch{
+			margin: auto;
+			margin-top:50px;
+			width: 1200px;
+			text-align: right;
+		}
+		
+		div.search{
+			margin: auto;
+			margin-top:50px;
+			width: 1200px;
+			text-align: right;
+		}
+		
+		button#search_btn{
+			width: 100px;
+			height: 40px;
+			background-color: #93DAFF;
+			color: white;
+			font-size:13pt;
+			font-weight: bold;
+		}
+		
+		button#search_btn:hover{
+			background-color: #8c8c8c;
+		}
+		table{
+			margin: auto;
+			margin-top:30px;
+			border: 2px black solid;
+			width: 1200px;
+			border-collapse: collapse;
+		}
+		th{
+			background-color: #93DAFF;
+			color:white;
+			font-weight: bold;
+		}
+		
+		tr{
+			border-collapse: collapse;
+		}
+		
+		td{
+			text-align: center;
+			border: 1px black solid;
+			border-collapse: collapse;
+			height: 35px;
+			font-size: 14pt;
+			font-weight: bold;
+		}
+		
+		div.page{
+			margin: auto;
+			margin-top:50px;
+			margin-bottom:50px;
+			width: 1200px;
+			text-align: center;
+		}
+		
+		button{
+			border: none;
+			border-radius: 8px;		
+		}
+		
+		button#page_btn{
+			width: 35px;
+			height: 35px;
+		}
+		
+		button#page_btn:hover{
+			background-color: #93DAFF;
+			color: white;
+		}
+		
+		button.active{
+			background-color: #93DAFF;
+			color: white;
+		}
+		
+		div.btn{
+			margin: auto;
+			margin-top:20px;
+			width: 1200px;
+			text-align: right;
+		}
+		
+		button#studentReg_btn{
+			width: 100px;
+			height: 50px;
+			font-weight: bold;
+		}
+		
+		select {
+			height: 30px;
+		}
+		
+		input[type='text'] {
+			height: 20px;
+		}
+		
+		td#fail{
+			height: 500px;
+			margin-bottom: 30px;
+		}
+		
+		span#fail{
+			color: red;
+			font-weight: bold;
+		}
+		
+		img#sList{
+			width: 100px;
+			height: 100px;
+			margin-bottom: 20px;
+		}
+		
+		a#reList{
+			font-size: 9pt;
+			font-weight: bold;
+		}
+		
+		tr.subject th{
+			background-color:#B9FFFF;
+			border: 1px black solid;
+			border-collapse: collapse;
+			color: black;
+		}
+		
+		tr.score input{
+			width: 50px;
+			text-align: center;
+		}
+		
+		tr.score button{
+			width: 100px;
+			height: 30px;
+			font-weight: bold;
+		}
+		
+		img#x{
+			width: 20px;
+			height: 20px;
+		}
+		
+		img#o{
+			width: 25px;
+			height: 25px;
+		}
+		
+		
+		button.scoreReg_btn{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			font-size:11pt;
+			font-weight: bold;
+			width: 100px;
+			height: 50px;
+		}
+		
+		button.scoreReg_btn:hover{
+			background-color: #B9FFFF;
+			font-weight: bold;
+		}
+		
