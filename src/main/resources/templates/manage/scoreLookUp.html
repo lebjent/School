@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+   
+   <th:block layout:fragment="css">
+   		<link rel="stylesheet" type="text/css" th:href="@{/css/manage/scoreLookUp.css}">
+   </th:block>
+   <th:block layout:fragment="script">
+   	
+   </th:block>    	
+    <div layout:fragment="content">
+    	<div class="scoreLook">
+    		<h3>학생 성적조회</h3>
+    		
+    		<!-- 학생이 조회 할경우 -->
+    		<div class="student" style="display: none;">
+    			<table class="student">
+    				<tr>
+    					<td>
+    						<label>학번</label>
+    						<br>
+    						<input type="text" name="studentIdx" id="studentIdx">
+    					</td>
+    				</tr>
+    			</table>
+    			<div class="student_btn">
+    				<button type="button">조회하기</button>
+    			</div>
+    		</div>
+    		
+    		<!-- 교수님이 조회 할 경우 -->
+    		<div class="professor">
+    			<div class="detailSearch">
+    			<span>학년</span>
+    			<select id="realGrade">
+    				<option value="">전체</option>
+    				<option value="1" th:selected="${#strings.equals(cri.sGrade, '1')}">1학년</option>
+    				<option value="2" th:selected="${#strings.equals(cri.sGrade, '2')}">2학년</option>
+    				<option value="3" th:selected="${#strings.equals(cri.sGrade, '3')}">3학년</option>
+    				<option value="4" th:selected="${#strings.equals(cri.sGrade, '4')}">4학년</option>
+    			</select>
+    			<span>반</span>
+    			<select id="realClass">
+    				<option value="">전체</option>
+    				<option value="A" th:selected="${#strings.equals(cri.sClass, 'A')}">A</option>
+    				<option value="B" th:selected="${#strings.equals(cri.sClass, 'B')}">B</option>
+    				<option value="C" th:selected="${#strings.equals(cri.sClass, 'C')}">C</option>
+    			</select>
+    		</div>
+    		<div class="search">
+    			<select id="realSearchType">
+    				<option value="NIP">전체</option>
+    				<option value="N" th:selected="${#strings.equals(cri.SearchType, 'N')}">이름</option>
+    				<option value="I" th:selected="${#strings.equals(cri.SearchType, 'I')}">학번</option>
+    				<option value="P" th:selected="${#strings.equals(cri.SearchType, 'P')}">전화번호</option>
+    			</select>
+    			<input type="text" id="realKeyword" th:value="${cri.keyword}">
+    			<button type="button" id="search_btn">Search</button>
+    		</div>
+    		<table class="professor">
+    			<tr>
+    				<th colspan="2">학번</th>
+    				<th>학생이름</th>
+    				<th>학년</th>
+    				<th>반</th>
+    			</tr>
+    			<th:block th:each="list,index : ${list}" >
+	     		<tr>
+    				<td th:text=${list.student_idx} colspan="2"></td>
+    				<td th:text=${list.student_name}></td>
+    				<td th:text=${list.student_grade}></td>
+    				<td th:text=${list.student_class}></td>
+    			</tr>
+    			<tr class="score">
+    				<th>JAVA</th>
+    				<th>SQL</th>
+    				<th>JavaScript</th>
+    				<th>Spring</th>
+    				<th>CSS</th>
+    			</tr>
+    			<tr class="original">
+    				<th colspan="5">100점 기준점수 입력값</th>
+    			</tr>
+    			<tr>
+    				<td th:text="${list.m_java}"></td>
+    				<td th:text="${list.m_sql}"></td>
+    				<td th:text="${list.m_javascript}"></td>
+    				<td th:text="${list.m_spring}"></td>
+    				<td th:text="${list.m_css}"></td>
+    			</tr>
+    			<tr class="original">
+    				<th colspan="5">알파벳당 성적</th>
+    			</tr>
+    			<tr>
+    				<td th:text="${slist.get(index.index).sJava}"></td>
+    				<td th:text="${slist.get(index.index).sSql}"></td>
+    				<td th:text="${slist.get(index.index).sJavaScript}"></td>
+    				<td th:text="${slist.get(index.index).sSpring}"></td>
+    				<td th:text="${slist.get(index.index).sCss}"></td>
+    			</tr>
+    			<tr class="alpa">
+    				<th colspan="5">알파벳당 평균점수</th>
+    			</tr>
+    			<tr>
+    				<td colspan="5" th:text="${slist.get(index.index).sAverage}"></td>
+    			</tr>
+    			<tr class="numberEncode">
+    				<th colspan="5">4.5점 만점 기준 성적</th>
+    			</tr>
+    			<tr>
+    				<td th:text="${nlist.get(index.index).nJava}"></td>
+    				<td th:text="${nlist.get(index.index).nSql}"></td>
+    				<td th:text="${nlist.get(index.index).nJavaScript}"></td>
+    				<td th:text="${nlist.get(index.index).nSpring}"></td>
+    				<td th:text="${nlist.get(index.index).nCss}"></td>
+    			</tr>
+    			<tr>
+    				<th colspan="5"></th>
+    			</tr>
+    			</th:block>
+    		</table>
+    		</div>
+    	</div>
+    </div>
+
+</html>

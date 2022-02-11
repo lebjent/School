@@ -1,10 +1,14 @@
 package com.school.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.school.dto.ScoreDTO;
 import com.school.mapper.ScoreMapper;
+import com.school.page.Criteria;
 
 @Service
 public class ScoreServiceImpl implements ScoreService {
@@ -22,6 +26,14 @@ public class ScoreServiceImpl implements ScoreService {
 		//점수등록 실행
 		sMapper.scoreReg(sDTO);
 		
+	}
+	
+	
+	//성적조회
+	@Override
+	public List<Map<String, Object>> selectScore(Criteria cri) throws Exception {
+		
+		return sMapper.selectScore(cri);
 	}
 	
 	

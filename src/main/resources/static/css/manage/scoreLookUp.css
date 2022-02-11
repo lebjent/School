@@ -1,0 +1,148 @@
+		div.scoreLook{
+			margin: auto;
+			margin-top:30px;
+			margin-bottom:30px;
+			border: 3px black solid;
+			width: 1400px;
+			border-radius: 20px;
+		}
+		
+		h3{	
+			margin-top: 20px;
+			text-align: center;
+		}
+		
+		
+		/* 학생이 조회할경우 css */
+		
+		div.student{
+			margin: auto;
+			margin-top:200px;
+			margin-bottom:200px;
+			border: 2px #32A4FF solid;
+			border-radius: 15px;
+			width: 500px;
+		}
+		
+		table.student {
+			margin: auto;
+			margin-top: 80px;
+			margin-bottom: 80px;
+			width: 400px;
+		}
+		
+		table.student label{
+			font-weight: bold;
+		}
+		
+		table.student input{
+			width: 400px;
+			height: 30px;
+			border: none;
+			border-bottom: 2px #32A4FF solid;
+		}
+		
+		div.student_btn{
+			margin: auto;
+			margin-bottom:50px;
+			width: 400px;
+			text-align: center;
+		}
+		
+		div.student_btn button{
+			width: 200px;
+			height: 50px;
+		}
+		
+		/*교수님이 조회할 경우 css*/
+		div.detailSearch{
+			margin: auto;
+			margin-top:50px;
+			width: 1200px;
+			text-align: right;
+		}
+		
+		div.search{
+			margin: auto;
+			margin-top:50px;
+			width: 1200px;
+			text-align: right;
+		}
+		
+		button{
+			border: none;
+			border-radius: 8px;		
+		}
+		
+		button#search_btn{
+			width: 100px;
+			height: 40px;
+			background-color: #1EAAAA;
+			color: white;
+			font-size:13pt;
+			font-weight: bold;
+		}
+		
+		button#search_btn:hover{
+			background-color: #8c8c8c;
+		}
+		
+		div.search{
+			margin: auto;
+			margin-top:50px;
+			width: 1200px;
+			text-align: right;
+		}
+		
+		button#search_btn{
+			width: 100px;
+			height: 40px;
+			background-color: #2828CD;
+			color: white;
+			font-size:13pt;
+			font-weight: bold;
+		}
+		
+		button#search_btn:hover{
+			background-color: #8c8c8c;
+		}
+		
+		table.professor{
+			margin: auto;
+			margin-top:30px;
+			margin-bottom:30px;
+			border: 2px black solid;
+			width: 1200px;
+			border-collapse: collapse;
+		}
+		
+		table.professor th{
+			background-color: #2828CD;
+			color:white;
+			font-weight: bold;
+		}
+		
+		table.professor tr{
+			border-collapse: collapse;
+		}
+		
+		table.professor td{
+			text-align: center;
+			border: 1px black solid;
+			border-collapse: collapse;
+			height: 35px;
+		}
+		
+		tr.score th{
+			background-color: #D2D2FF;
+			border: 1px black solid;
+			color:black;
+			width: 20%;
+		}
+		
+		tr.original th{
+			background-color: #46649B;
+		}
+		
+		
+		

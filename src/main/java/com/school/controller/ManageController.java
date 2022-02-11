@@ -1,5 +1,10 @@
 package com.school.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +16,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.school.dto.ScoreDTO;
 import com.school.dto.StudentDTO;
+import com.school.encode.NumberScore;
+import com.school.encode.ScoreEncoding;
+import com.school.encode.SpellScore;
 import com.school.page.Criteria;
 import com.school.page.PageMaker;
 import com.school.service.ScoreService;
 import com.school.service.StudentService;
 
+import groovyjarjarantlr4.v4.parse.ANTLRParser.sync_return;
 import groovyjarjarpicocli.CommandLine.Model;
 import lombok.extern.slf4j.Slf4j;
 
@@ -113,6 +122,37 @@ public class ManageController {
 		rttr.addAttribute("sClass",cri.getsClass());
 		
 		return "redirect:/manage/scoreRegView";
+	}
+	
+	//성적조회하기
+	@GetMapping("/scoreLookUp")
+	public ModelAndView scoreLookUpView(ModelAndView mv,@ModelAttribute("cri") Criteria cri)throws Exception{
+		
+		log.info("성적조회View");
+		cri.setAmount(5);
+		
+		//기본 점수 입력 및 학생정보 리스트
+		List<Map<String,Object>> list = new ArrayList<>();
+		list = scoreService.selectScore(cri);
+		
+		//점수인코딩 메서드 생성자 불러오기
+		ScoreEncoding se = new ScoreEncoding();
+		
+		//알파벳 변환 점수 메서드 불러오기
+		List<SpellScore> slist = se.spellScoreEncoding(list);
+		
+		//넘버 변환점수 메서드 불러오기
+		List<NumberScore> nlist = se.numberScoreEncoding(slist);
+		
+		//원래점수 리스트
+		mv.addObject("list",list);
+		//영어변환 점수 리스트
+		mv.addObject("slist",slist);
+		//숫자변환 리스트
+		mv.addObject("nlist",nlist);
+		mv.setViewName("/manage/scoreLookUp");
+		
+		return mv;
 	}
 	
 }
