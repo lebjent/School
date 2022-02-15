@@ -12,6 +12,24 @@
 			text-align: center;
 		}
 		
+		/*프린트 css*/
+		
+		div.printArea{
+			margin: auto;
+			width: 1200px;
+			text-align: right;
+		}
+		
+		button#scorePrint{
+			width:80px;
+			height: 40px;
+			font-weight: bold;
+		}
+		
+		button#scorePrint:hover{
+			border: 3px solid black;
+		}
+		
 		
 		/* 학생이 조회할경우 css */
 		
@@ -144,5 +162,40 @@
 			background-color: #46649B;
 		}
 		
+		tr.alpa th{
+			background-color: #87CEFA;
+		}
 		
+		tr.numberEncode th{
+			background-color: #008C8C;
+		}
+		
+		hr {
+			border: 10px solid;
+		}
+		
+		/*페이징처리*/
+		div.page{
+			margin: auto;
+			margin-top:30px;
+			margin-bottom:30px;
+			width: 1200px;
+			text-align: center;
+		}
+		
+		
+		button#page_btn{
+			width: 35px;
+			height: 35px;
+		}
+		
+		button#page_btn:hover{
+			background-color: #1EAAAA;
+			color: white;
+		}
+		
+		button.active{
+			background-color: #1EAAAA;
+			color: white;
+		}
 		

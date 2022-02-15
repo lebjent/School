@@ -29,7 +29,7 @@ public class Criteria {
 	private String sClass;
 	
 	
-	//기본 초기 생성자 - > 기본세팅: pageNum = 1, amount = 10;
+	//기본 초기 생성자 - > 기본세팅: pageNum = 1, amount = 15;
 	public Criteria() {
 		this(1,15);
 		this.skip=0;
@@ -56,7 +56,7 @@ public class Criteria {
 	}
 
 	public void setAmount(int amount) {
-		this.skip= (this.pageNum)*amount;
+		this.skip= (pageNum-1)*amount;
 		this.amount = amount;
 	}
 

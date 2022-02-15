@@ -35,6 +35,13 @@ public class ScoreServiceImpl implements ScoreService {
 		
 		return sMapper.selectScore(cri);
 	}
+
+	//성적조회 카운트
+	@Override
+	public int scoreTotal(Criteria cri) throws Exception {
+		
+		return sMapper.scoreTotal(cri);
+	}
 	
 	
 	

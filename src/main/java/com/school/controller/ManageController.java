@@ -129,7 +129,19 @@ public class ManageController {
 	public ModelAndView scoreLookUpView(ModelAndView mv,@ModelAttribute("cri") Criteria cri)throws Exception{
 		
 		log.info("성적조회View");
+		
 		cri.setAmount(5);
+		
+		//학생리스트 총 카운트 불러오기
+		int total = scoreService.scoreTotal(cri);
+		//리스트 화면에 총 카운트수 저장하기
+		mv.addObject("total",total);
+		//PageMaker메서드 호출
+		PageMaker pageMake = new PageMaker(cri, total);
+				
+		//model에 PageMaker 정보저장
+		mv.addObject("pageMaker",pageMake);
+		
 		
 		//기본 점수 입력 및 학생정보 리스트
 		List<Map<String,Object>> list = new ArrayList<>();
