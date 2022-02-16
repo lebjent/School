@@ -24,4 +24,9 @@ public class MainController {
 	return "main";
 	}
 	
+	@GetMapping("/loginPage")
+	public String login()throws Exception{
+		
+		return "login";
+	}
 }

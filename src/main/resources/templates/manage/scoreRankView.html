@@ -3,15 +3,14 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout}">
    <th:block layout:fragment="css">
-   		<link rel="stylesheet" th:href="@{/css/manage/scoreRegView.css}" >
-   </th:block> 
-   <th:block layout:fragment="script">
- 		<script type="text/javascript" th:src="@{/js/manage/scoreRegView.js}"></script>
+   		<link rel="stylesheet" type="text/css" th:href="@{/css/manage/scoreRankView.css}">
    </th:block>
-   
+   <th:block layout:fragment="script">
+   		<script type="text/javascript" th:src="@{/js/manage/scoreRankView.js}"></script>
+   </th:block>  	
     <div layout:fragment="content">
-    	<div class="scoreReg">
-    		<h3>MiNi School 컴퓨터공학과 점수등록</h3>
+		<div class="scoreRankView">
+    		<h3>MiNi School 컴퓨터공학과 학생등수</h3>
     		<div class="detailSearch">
     			<span>학년</span>
     			<select id="realGrade">
@@ -31,10 +30,7 @@
     		</div>
     		<div class="search">
     			<select id="realSearchType">
-    				<option value="NIP">전체</option>
     				<option value="N" th:selected="${#strings.equals(cri.SearchType, 'N')}">이름</option>
-    				<option value="I" th:selected="${#strings.equals(cri.SearchType, 'I')}">학번</option>
-    				<option value="P" th:selected="${#strings.equals(cri.SearchType, 'P')}">전화번호</option>
     			</select>
     			<input type="text" id="realKeyword" th:value="${cri.keyword}">
     			<button type="button" id="search_btn">Search</button>
@@ -45,53 +41,25 @@
     				<th>학생이름</th>
     				<th>학년</th>
     				<th>반</th>
-    				<th>전화번호</th>
-    				<th>성적등록여부</th>
+    				<th>평균점수</th>
+    				<th>등수</th>
     			</tr>
-    			<th:block th:if="${total>0}" th:each="list,index : ${list}">
-    			<tr>
-    				<td th:text=${list.studentIdx}></td>
-    				<td th:text=${list.studentName}></td>
-    				<td th:text=${list.studentGrade}></td>
-    				<td th:text=${list.studentClass}></td>
-    				<td th:text=${list.studentPhone}></td>
-    				<td th:if="${#strings.equals(list.scoreYn,'N')}">
-    					<img id="x" alt="x" th:src="@{/images/icon/close.png}">
-    				</td>
-    				<td th:unless="${#strings.equals(list.scoreYn,'N')}">
-    					<img id="o" alt="o" th:src="@{/images/icon/check.png}">
-    				</td>
+    			<tr th:if="${total>0}" th:each="list : ${rankList}">
+					<td th:text=${list.student_idx}></td>
+    				<td th:text=${list.student_name}></td>
+    				<td th:text=${list.student_grade}></td>
+    				<td th:text=${list.student_class}></td>
+    				<td th:text="${#numbers.formatDecimal(list.total,2,1)}+점"></td>
+    				<td th:text=${list.real_rank}></td>
     			</tr>
-    			<th:block th:if="${#strings.equals(list.scoreYn,'N')}">
-    			<tr class="subject">
-    				<th>JAVA</th>
-    				<th>SQL</th>
-    				<th>JavaScript</th>
-    				<th>Spring</th>
-    				<th>CSS</th>
-    				<th>등록</th>
-    			</tr>
-    			<form th:id="scoreForm+${index.index}" method="post" action="/manage/scoreReg">
-    			<input type="hidden" th:id="studentList+${index.index}" th:value="${list.studentIdx}">
-    			<tr class="score">
-    				<td><input type="text"  th:id="mJava+${index.index}"></td>
-    				<td><input type="text"  th:id="mSql+${index.index}"></td>
-    				<td><input type="text"  th:id="mJavaScript+${index.index}"></td>
-    				<td><input type="text"  th:id="mSpring+${index.index}"></td>
-    				<td><input type="text"  th:id="mCss+${index.index}"></td>
-    				<td><button type="button" class="scoreReg_btn" th:value="${index.index}">성적등록</button></td>
-    			</tr>
-    			</th:block>
-    			</form>
-    			</th:block>
     			<tr th:unless="${total>0}">
-    				<td id="fail" colspan="5">
+    				<td id="fail" colspan="6">
     					<img id="sList" alt="sList" th:src="@{/images/studentlist.png}">
     					<br>
     					<span id="fail">조건에 맞는 학생이 없습니다.</span>
     					<br>
     					<br>
-    					<a href="/manage/studentList" id="reList">처음으로 돌아가기</a>
+    					<a href="/manage/scoreRank" id="reList">처음으로 돌아가기</a>
     				</td>
     			</tr>
     		</table>
@@ -110,15 +78,13 @@
     				<button  th:value=${pageMaker.endPage+1}>다음</button>
     			</th:block>
     		</div>
-    		<form id="moveForm">
-    			<input type="hidden" id="pageNum" name="pageNum" th:value="${cri.pageNum}">
+    		<form id="moveForm" method="get">
+    			<input type="hidden" id="pageNum" name="pageNum" th:value="1">
     			<input type="hidden" id="amount" name="amount" th:value="15">
-    			<input type="hidden" id="searchType" name="searchType" th:value="${cri.searchType}">
     			<input type="hidden" id="keyword" name="keyword" th:value="${cri.keyword}">
     			<input type="hidden" id="sGrade" name="sGrade" th:value="${cri.sGrade}">
     			<input type="hidden" id="sClass" name="sClass" th:value="${cri.sClass}">
     		</form>
-    	</div>
+    	</div>	
     </div>
-
 </html>

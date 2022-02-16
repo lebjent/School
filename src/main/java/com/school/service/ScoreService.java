@@ -17,4 +17,8 @@ public interface ScoreService {
 	//성적조회 총 카운트
 	public int scoreTotal(Criteria cri)throws Exception;
 	
+	//등수조회
+	public List<Map<String,Object>> selectRank(Criteria cri) throws Exception;
+	
+	
 }

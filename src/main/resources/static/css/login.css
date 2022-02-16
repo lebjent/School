@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+div.container{
+	
+	margin-top:100px;
+	width: 500px;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+h1{
+	font-weight: bold;
+	
+}
+
+div.logo{
+	text-align: center;
+	margin-bottom:100px;
+}
+
+h2{
+	font-weight: bold;
+}
+
+img#school{
+	width:90px;
+}

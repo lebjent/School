@@ -18,10 +18,8 @@
 				//검색하기
 				$("#search_btn").on("click",function(){
 					
-					let searchType = $("#realSearchType").val();
 					let keyword = $("#realKeyword").val();
 					
-					$("#searchType").val(searchType);
 					$("#keyword").val(keyword);
 					moveForm.attr("action","/manage/studentList");
 					moveForm.submit();

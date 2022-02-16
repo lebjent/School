@@ -167,4 +167,29 @@ public class ManageController {
 		return mv;
 	}
 	
+	
+	//등수 뷰로 이동
+	@GetMapping("/scoreRank")
+	public ModelAndView rankView(ModelAndView mv, @ModelAttribute("cri") Criteria cri)throws Exception{
+		
+		log.info("등수 조회하기");
+		//학생리스트 총 카운트 불러오기
+		int total = scoreService.scoreTotal(cri);
+		
+		//리스트 화면에 총 카운트수 저장하기
+		mv.addObject("total",total);
+		
+		//PageMaker메서드 호출
+		PageMaker pageMake = new PageMaker(cri, total);
+		
+		//model에 PageMaker 정보저장
+		mv.addObject("pageMaker",pageMake);
+		
+		mv.addObject("rankList",scoreService.selectRank(cri));
+			
+		mv.setViewName("/manage/scoreRankView");
+		
+		return mv;
+	}
+	
 }

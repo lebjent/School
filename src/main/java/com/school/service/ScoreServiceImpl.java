@@ -42,6 +42,14 @@ public class ScoreServiceImpl implements ScoreService {
 		
 		return sMapper.scoreTotal(cri);
 	}
+
+	//등수조회
+	@Override
+	public List<Map<String, Object>> selectRank(Criteria cri) throws Exception {
+		
+		return sMapper.selectRank(cri);
+	}
+
 	
 	
 	

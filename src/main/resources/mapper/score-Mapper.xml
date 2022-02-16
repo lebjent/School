@@ -73,7 +73,9 @@
 	
 	<!-- 등수 정하기 위한 코드(동일한 점수인경우 동점랭킹) -->
 	<select id="selectRank" resultType="hashmap" parameterType="Criteria">
-		SELECT  student_idx,
+	SELECT 	*
+		FROM
+		(SELECT  student_idx,
 	   		   	student_name,
        			student_grade,
        			student_class,
@@ -89,9 +91,22 @@
 					  	(sum(a.m_java+a.m_css+a.m_javascript+a.m_spring+a.m_sql)/5.0) AS total
 				FROM score_tbl a JOIN student_tbl b
 				ON a.student_idx = b.student_idx
-				JOIN ( SELECT @rank := 0, @last := 0, @real_rank := 1 )c
+				JOIN ( SELECT @rank := 0, @last := 0, @real_rank := 1 ) c
 				GROUP BY student_idx
-				ORDER BY total DESC)AS RANK
+				ORDER BY total DESC)AS first
+				WHERE 1=1
+				<if test="sGrade != null and sGrade != ''">
+					AND student_grade = #{sGrade}
+				</if>
+				<if test="sClass != null and sClass != ''">
+					AND student_class = #{sClass}
+				</if>
+				ORDER BY total DESC
+				)AS second
+				WHERE 1=1
+				<if test="keyword != null and keyword != ''">
+					AND student_name LIKE CONCAT('%',#{keyword},'%')
+				</if>
 		LIMIT #{skip},#{amount}
 	</select>
 	
