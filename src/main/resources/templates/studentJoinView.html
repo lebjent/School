@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MiNi School 학생 회원가입 페이지</title>
+<link rel="stylesheet" th:href="@{/css/publicJoinView.css}">
+<script type="text/javascript" th:src="@{/vendor/jquery-3.2.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/publicJoinView.js}"></script>
+</head>
+<body>
+	<div class="main">
+		<h2>MiNi School 학생 회원가입</h2>
+		<div class="schoolJoin">
+			<form method="post" id="joinForm" action="/memberJoin">
+			<table>
+				<input type="hidden" name="userAuth" value="USER">
+				<tr>
+					<td>
+						<label for="studentIdx">학번</label>
+						<br>
+						<input type="text" name="studentIdx" id="studentIdx" class="chk">
+						<button type="button" id="studentIdx_btn" value="N" class="chkBtn">학번확인</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="userId">아이디</label>
+						<br>
+						<input type="text" name="userId" id="userId" class="chk">
+						<button type="button" id="userId_btn" value="N" class="chkBtn">중복체크</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="userPw">비밀번호</label>
+						<br>
+						<input type="password" name="userPw" id="userPw">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="userPwChk">비밀번호 확인</label>
+						<br>
+						<input type="password"  id="userPwChk">
+					</td>
+				</tr>
+			</table>
+			</form>
+			<div class="btn">
+				<button type="button" id="login_btn">로그인으로</button>
+				<button type="button" id="sjoin_btn">회원가입</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

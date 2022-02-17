@@ -120,5 +120,27 @@ div.footer{
 	
 }
 
+/* info 영역 */
+div.info {
+	margin: auto;
+	margin-top: 30px;
+	width:1400px;
+	text-align: right;
+	
+}
 
+div.info button {
+	border:none;
+	border-radius:15px;
+	width:100px; 
+	height: 30px;
+	font-weight: bold;
+	background-color: #FF0000;
+	color: white;
+}
 
+div.info button:hover{
+	border:2px solid #FF0000;
+	background-color: white;
+	color: black;
+}

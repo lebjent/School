@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+div.main{
+	margin: auto;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+div.joinForm{
+	margin: auto;
+	margin-top: 150px;
+}
+
+h2{
+	text-align: center;
+}
+
+/* 회원선택 공통 */
+
+table {
+	margin: auto;
+	margin-top: 150px;
+}
+
+tr{
+	text-align: center;
+}
+
+td{	
+	padding-top:30px;
+	padding-bottom:30px;
+	border: 4px black solid;
+	border-radius: 15px;
+	width:300px; 
+}
+
+img{
+	width: 200px;
+	height: 200px;	
+}
+
+span {
+	font-size: 15pt;
+	font-weight: bold;
+}
+
+td#student:hover{
+	border: 4px solid #0078FF;
+	color: white;
+	background-color: #0078FF;
+	opacity: 2.8;
+}
+
+td#professor:hover{
+	border: 4px solid #FF7DB4;
+	color: white;
+	background-color: #FF7DB4;
+	opacity: 2.8;
+}

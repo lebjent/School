@@ -19,8 +19,10 @@
 				$("#search_btn").on("click",function(){
 					
 					let keyword = $("#realKeyword").val();
+					let searchType = $("#realSearchType").val();
 					
 					$("#keyword").val(keyword);
+					$("#searchType").val(searchType);
 					moveForm.attr("action","/manage/studentList");
 					moveForm.submit();
 					

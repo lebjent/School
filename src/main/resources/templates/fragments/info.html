@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeleaf.org>
+
+<div class="info" th:fragment="info">
+	<span th:text="${session.info}+님"></span>
+	&nbsp;
+	<button type="button" onclick="location.href='/logout'">logout</button>
+</div>
+
+</html>

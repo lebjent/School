@@ -5,8 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.school.dto.ScoreDTO;
 import com.school.dto.StudentDTO;
+import com.school.dto.UserDTO;
 import com.school.encode.NumberScore;
 import com.school.encode.ScoreEncoding;
 import com.school.encode.SpellScore;
@@ -25,7 +31,6 @@ import com.school.service.ScoreService;
 import com.school.service.StudentService;
 
 import groovyjarjarantlr4.v4.parse.ANTLRParser.sync_return;
-import groovyjarjarpicocli.CommandLine.Model;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -37,6 +42,18 @@ public class ManageController {
 	private StudentService sService;
 	
 	@Autowired ScoreService scoreService;
+	 
+	@GetMapping("/main")
+	public String mainPage(Authentication authentication,HttpServletRequest req)throws Exception{
+		log.info("메인페이지로 이동");
+		//Authentication 객체를 통해 유저 정보를 가져 올 수있다.
+		UserDTO uDTO = (UserDTO) authentication.getPrincipal();
+		log.info(uDTO.getUserId());
+		
+		HttpSession session = req.getSession();
+		session.setAttribute("info",uDTO.getUserId());
+		return "main";
+	}
 	
 	@GetMapping("/studentRegView")
 	public ModelAndView studentRegView(ModelAndView mv)throws Exception{
@@ -84,7 +101,7 @@ public class ManageController {
 	}
 	
 	//성적등록하기 뷰
-	@GetMapping("/scoreRegView")
+	@GetMapping("/professor/scoreRegView")
 	public ModelAndView scoreRegView(ModelAndView mv,@ModelAttribute("cri") Criteria cri)throws Exception{
 		
 		log.info("성적등록하기 뷰");

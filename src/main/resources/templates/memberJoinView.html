@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MiNi School 회원가입 페이지</title>
+<link rel="stylesheet" th:href="@{/css/memberJoinView.css}">
+<script type="text/javascript" th:src="@{/vendor/jquery-3.2.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/memberJoinView.js}"></script>
+</head>
+<body>
+	<div class="main">
+			<div class="joinForm">
+				<h2>MiNi School 가입유형 선택</h2>
+				<table>
+					<tr class="joinChoice">
+						<td th:id="student" data-value="student">
+							<img alt="student" th:src="@{/images/icon/student.png}">
+							<br>
+							<span>MiNiSchool 학생</span>						
+						</td>
+						<td th:id="professor" data-value="professor">
+							<img alt="professor" th:src="@{/images/icon/professor.png}">
+							<br>
+							<span>MiNiSchool 교수</span>		
+						</td>
+					</tr>
+				</table>
+			</div>
+	</div>
+</body>
+</html>
