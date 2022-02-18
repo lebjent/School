@@ -7,7 +7,7 @@
 					
 					$("#pageNum").val($(this).val());
 					moveForm.attr("method","GET");
-					moveForm.attr("action","/manage/scoreRegView");
+					moveForm.attr("action","/professor/scoreRegView");
 					moveForm.submit();
 					
 				})
@@ -20,8 +20,9 @@
 					
 					$("#searchType").val(searchType);
 					$("#keyword").val(keyword);
+					$("#pageNum").val(1);
 					moveForm.attr("method","GET");
-					moveForm.attr("action","/manage/scoreRegView");
+					moveForm.attr("action","/professor/scoreRegView");
 					moveForm.submit();
 					
 				})
@@ -31,7 +32,8 @@
 				
 				let sGrade = $("#realGrade").val();
 				$("#sGrade").val(sGrade);
-				moveForm.attr("action","/manage/scoreRegView");
+				$("#pageNum").val(1);
+				moveForm.attr("action","/professor/scoreRegView");
 				moveForm.submit();
 			})
 			
@@ -40,9 +42,9 @@
 				
 				let sClass = $("#realClass").val();
 				$("#sClass").val(sClass);
-				
+				$("#pageNum").val(1);
 				moveForm.attr("method","GET");
-				moveForm.attr("action","/manage/scoreRegView");
+				moveForm.attr("action","/professor/scoreRegView");
 				moveForm.submit();
 			})
 			
@@ -93,7 +95,7 @@
 					
 					moveForm.append(str);
 					moveForm.attr("method","POST");
-					moveForm.attr("action","/manage/scoreReg");
+					moveForm.attr("action","/professor/scoreReg");
 					moveForm.submit();
 					
 				}else{

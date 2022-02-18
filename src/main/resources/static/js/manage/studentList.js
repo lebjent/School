@@ -2,7 +2,7 @@
 				
 				//학생등록으로 이동
 				$("#studentReg_btn").on("click",function(){
-					location.href = '/manage/studentRegView';
+					location.href = '/professor/studentRegView';
 				})
 				//페이지 이동하기
 				let moveForm = $("#moveForm");

@@ -55,28 +55,6 @@ public class ManageController {
 		return "main";
 	}
 	
-	@GetMapping("/studentRegView")
-	public ModelAndView studentRegView(ModelAndView mv)throws Exception{
-		
-		
-		log.info("학생 등록 뷰");
-		
-		mv.setViewName("/manage/studentRegView");
-		mv.addObject("studentIdx",sService.autoStudentIdx());
-		
-		return mv;
-	}
-	
-	//학생등록 소스코드
-	@PostMapping("/studentReg")
-	public String studentReg(StudentDTO sDTO)throws Exception{
-		
-		log.debug("학생을 등록합니다.");
-		
-		sService.studentReg(sDTO);
-		
-		return "/main";
-	}
 	
 	//학생리스트 불러오기
 	@GetMapping("/studentList")

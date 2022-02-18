@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.school.dto.ScoreDTO;
+import com.school.dto.StudentDTO;
 import com.school.page.Criteria;
 import com.school.page.PageMaker;
 import com.school.service.ScoreService;
@@ -66,7 +67,30 @@ public class ProfessorController {
 		rttr.addAttribute("sGrade",cri.getsGrade());
 		rttr.addAttribute("sClass",cri.getsClass());
 		
-		return "redirect:/manage/scoreRegView";
+		return "redirect:/professor/scoreRegView";
+	}
+	
+	@GetMapping("/studentRegView")
+	public ModelAndView studentRegView(ModelAndView mv)throws Exception{
+		
+		
+		log.info("학생 등록 뷰");
+		
+		mv.setViewName("/manage/studentRegView");
+		mv.addObject("studentIdx",sService.autoStudentIdx());
+		
+		return mv;
+	}
+	
+	//학생등록 소스코드
+	@PostMapping("/studentReg")
+	public String studentReg(StudentDTO sDTO)throws Exception{
+		
+		log.debug("학생을 등록합니다.");
+		
+		sService.studentReg(sDTO);
+		
+		return "/main";
 	}
 	
 }
