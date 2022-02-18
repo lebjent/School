@@ -54,6 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     	web.ignoring().antMatchers("/css/**","/images/**","/js/**","/vendor/**");
     }
     
+    //패스워드 인코딩을 위한 소스코드
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
     	auth.userDetailsService(userService).passwordEncoder(new BCryptPasswordEncoder());

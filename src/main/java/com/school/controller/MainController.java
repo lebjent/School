@@ -34,7 +34,7 @@ public class MainController {
 	
 	//로그인 페이지로 이동
 	@GetMapping("/loginPage")
-	public String login(@RequestParam(value = "error",required = false)String error,Model model)throws Exception{
+	public String login()throws Exception{
 		return "login";
 	}
 	

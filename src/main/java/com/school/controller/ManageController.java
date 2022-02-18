@@ -100,47 +100,6 @@ public class ManageController {
 		return mv;
 	}
 	
-	//성적등록하기 뷰
-	@GetMapping("/professor/scoreRegView")
-	public ModelAndView scoreRegView(ModelAndView mv,@ModelAttribute("cri") Criteria cri)throws Exception{
-		
-		log.info("성적등록하기 뷰");
-		
-		//학생리스트 총 카운트 불러오기
-		int total = sService.studentTotal(cri);
-		//리스트 화면에 총 카운트수 저장하기
-		mv.addObject("total",total);
-		//PageMaker메서드 호출
-		PageMaker pageMake = new PageMaker(cri, total);
-		
-		//model에 PageMaker 정보저장
-		mv.addObject("pageMaker",pageMake);
-		
-		mv.addObject("list", sService.studentList(cri));
-		mv.setViewName("/manage/scoreRegView");
-	
-		return mv;
-	}
-	
-	//점수등록하기
-	@PostMapping("/scoreReg")
-	public String scoreRegister(ScoreDTO sDTO,Criteria cri,RedirectAttributes rttr) throws Exception{
-		
-		log.info("점수등록하기");
-		System.out.println(cri.getPageNum());
-		
-		scoreService.scoreReg(sDTO);
-		
-		rttr.addAttribute("pageNum",cri.getPageNum());
-		rttr.addAttribute("amount",cri.getAmount());
-		rttr.addAttribute("searchType",cri.getSearchType());
-		rttr.addAttribute("keyword",cri.getKeyword());
-		rttr.addAttribute("sGrade",cri.getsGrade());
-		rttr.addAttribute("sClass",cri.getsClass());
-		
-		return "redirect:/manage/scoreRegView";
-	}
-	
 	//성적조회하기
 	@GetMapping("/scoreLookUp")
 	public ModelAndView scoreLookUpView(ModelAndView mv,@ModelAttribute("cri") Criteria cri)throws Exception{
